@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escola - Tema Azul Escuro</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a1a2b; /* azul escuro */
+      color: #eee;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Cabeçalho */
+    header {
+      background-color: #071422; /* azul mais escuro */
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 4px solid #7a0019; /* vermelho vinho */
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      cursor: default;
+    }
+    .logo .dourado {
+      color: gold;
+      transition: color 0.3s;
+    }
+    /* Menu */
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      color: #ccc;
+      transition: background-color 0.3s, color 0.3s;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    nav a.redvinho {
+      color: #7a0019;
+    }
+    nav a:hover {
+      background-color: #13294b;
+      color: gold;
+    }
+    nav a.active {
+      color: gold;
+      background-color: #13294b;
+    }
+    /* Ícones no menu */
+    nav a i {
+      font-size: 18px;
+      color: #999;
+      transition: color 0.3s;
+    }
+    nav a.active i,
+    nav a:hover i {
+      color: gold;
+    }
+    /* Conteúdo das seções */
+    section {
+      padding: 80px 40px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #7a0019; /* vermelho vinho */
+      border-bottom: 3px solid gold;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+    section p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+    /* Área de ícones para cursos */
+    .icons-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+    }
+    .icon-box {
+      background: #071422;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5a7db1;
+      font-size: 44px;
+      cursor: pointer;
+      transition: background-color 0.4s, color 0.4s, box-shadow 0.4s;
+      box-shadow: 0 0 8px #05122099;
+      user-select: none;
+    }
+    .icon-box:hover,
+    .icon-box.active {
+      background: gold;
+      color: #071422;
+      box-shadow: 0 0 15px gold;
+    }
+    /* Botão principal */
+    .btn-cta {
+      display: inline-block;
+      background-color: #7a0019;
+      color: white;
+      padding: 12px 32px;
+      font-size: 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 3px solid gold;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      text-align: center;
+      margin: 40px auto 0 auto;
+      display: block;
+      width: max-content;
+    }
+    .btn-cta:hover {
+      background-color: gold;
+      color: #071422;
+    }
+    /* Rodapé */
+    footer {
+      background-color: #071422;
+      color: #999;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 14px;
+      border-top: 3px solid #7a0019;
+      margin-top: 60px;
+    }
+    /* Responsividade */
+    @media (max-width: 700px) {
+      nav {
+        gap: 15px;
+      }
+      .icons-container {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .icon-box {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="normal">Neusa Pimentel </span
+      ><span class="dourado">Barbosa</span>
+    </div>
+    <nav>
+      <a href="#inicio" class="active" data-icon="fa-house" onclick="navClick(event)">
+        <i class="fa-solid fa-house"></i> Início
+      </a>
+      <a href="#sobre" data-icon="fa-info-circle" onclick="navClick(event)">
+        <i class="fa-solid fa-info-circle"></i> Sobre
+      </a>
+      <a href="#cursos" class="redvinho" data-icon="fa-graduation-cap" onclick="navClick(event)">
+        <i class="fa-solid fa-graduation-cap"></i> Cursos
+      </a>
+      <a href="#contato" data-icon="fa-envelope" onclick="navClick(event)">
+        <i class="fa-solid fa-envelope"></i> Contato
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <h2>Bem-vindo à Escola Neusa Pimentel Barbosa</h2>
+      <p>
+        Nossa escola oferece educação técnica de excelência, formando
+        profissionais preparados para os desafios do mercado atual.
+      </p>
+
+      <div class="icons-container" aria-label="Ícones dos cursos">
+        <div class="icon-box" tabindex="0" title="Desenvolvimento de Sistemas" onclick="toggleIconActive(this)">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="icon-box" tabindex="0" title="Agropecuária" onclick="toggleIconActive(this)">
+          <i class="fa-solid fa-seedling"></i>
+        </div>
+        <div class="icon-box" tabindex="0" title="Logística" onclick="toggleIconActive(this)">
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
+        <div class="icon-box" tabindex="0" title="Segurança do Trabalho" onclick="toggleIconActive(this)">
+          <i class="fa-solid fa-hard-hat"></i>
+        </div>
+      </div>
+
+      <button class="btn-cta" onclick="document.getElementById('cursos').scrollIntoView({behavior:'smooth'})">
+        Conheça nossos cursos
+      </button>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre a Escola</h2>
+      <p>
+        A Escola Neusa Pimentel Barbosa é referência em educação técnica com
+        compromisso com a qualidade e formação integral dos alunos.
+      </p>
+      <p>
+        Possuímos corpo docente qualificado e infraestrutura moderna para
+        garantir a melhor experiência de aprendizado.
+      </p>
+    </section>
+
+    <section id="cursos">
+      <h2>Cursos Técnicos</h2>
+      <p>
+        Oferecemos cursos nas áreas de Desenvolvimento de Sistemas, Agropecuária,
+        Logística e Segurança do Trabalho, com enfoque prático e atualizado.
+      </p>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>
+        Entre em contato conosco para mais informações, inscrições e dúvidas.
+      </p>
+      <p>Email: contato@neusapimentel.edu.br</p>
+      <p>Telefone: (00) 1234-5678</p>
+      <p>Endereço: Rua Zita da Silva Neiva, s/n, Prado, Paracatu - MG</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Escola Neusa Pimentel Barbosa - Todos os direitos reservados.
+  </footer>
+
+  <script>
+    // Navegação do menu - muda classe active no clique
+    function navClick(e) {
+      e.preventDefault();
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => link.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+
+      // Scroll suave para seção
+      const targetId = e.currentTarget.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    // Alterna cor dourada no ícone clicado
+    function toggleIconActive(el) {
+      const icons = document.querySelectorAll('.icon-box');
+      icons.forEach(icon => {
+        if (icon !== el) icon.classList.remove('active');
+      });
+      el.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
